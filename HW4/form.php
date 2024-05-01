@@ -10,12 +10,12 @@
     <label for="name" >Name:</label>
     <input name="name" value =
     "<?php
-    if (isSet($_COOKIE['name_value'])) {
+    if (isset($_COOKIE['name_value'])) {
         print $_COOKIE["name_value"];
     }
     ?>">
     <?php
-    if (isSet($_COOKIE['name_error'])) {
+    if (isset($_COOKIE['name_error'])) {
         echo '<div style="font-size: small; color: red; margin-bottom: -20px; ">';
         echo $_COOKIE['name_error'];
         echo '</div>';

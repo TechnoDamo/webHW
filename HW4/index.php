@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         for ($i = 0; $i < count($langs); $i++) {
             $isTrue = FALSE;
             for ($j = 0; $j < count($langs_check); $j++) {
-                if ($langs[$i] === $langs_check[$j]) {
+                if (htmlentities($langs[$i]) === $langs_check[$j]) {
                     $isTrue = TRUE;
                     break;
                 }
@@ -26,22 +26,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return TRUE;
     }
 
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $date = $_POST['date'];
+    $name = htmlentities($_POST['name']);
+    $phone = htmlentities($_POST['phone']);
+    $email = htmlentities($_POST['email']);
+    $date = htmlentities($_POST['date']);
     $gender = "";
-    $contract = $_POST['contract'];
-    if (empty($_POST['gender'])) {
+    $contract = htmlentities($_POST['contract']);
+    if (empty(htmlentities($_POST['gender']))) {
         $errorFlag = TRUE;
     }
-    else if ($_POST['gender'] == 'male' || $_POST['gender'] == 'female') {
-        $gender = $_POST['gender'];
+    else if (htmlentities($_POST['gender']) == 'male' || htmlentities($_POST['gender'] == 'female')) {
+        $gender = htmlentities($_POST['gender']);
     }
     else {
         $gender = 'other';
     }
-    $bio = $_POST['bio'];
+    $bio = htmlentities($_POST['bio']);
     $langs = $_POST['progLang'];
     $langs_check = ['c', 'c++', 'js', 'java', 'clojure', 'pascal', 'python', 'haskel', 'scala', 'php', 'prolog'];
     if (empty($name)) {

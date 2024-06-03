@@ -12,7 +12,7 @@ $_SESSION['loggedin'] = false;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Table with Stylish Logout Button</title>
+    <title>Admin Panel</title>
     <style>/* Styling for the table */
         /* Styling for the table */
         .styled-table {

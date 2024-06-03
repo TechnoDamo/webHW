@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const userType = document.getElementById('userType').value;
+
+            if (userType === 'user') {
+                console.log('Signing in as a user with username: ' + username);
+            } else if (userType === 'admin') {
+                console.log('Signing in as an admin with username: ' + username);
+            }
+
+            this.submit();
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        form h2 {
+            text-align: center;
+        }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <noscript>
+        <p style="color: red; font-weight: bold; text-align: center; margin-top: 20px;">Please enable JavaScript in your browser, some features may not work properly.</p>
+    </noscript>
+    <form id="signInForm" action = "auth.php" method = "POST" class="form">
+        <h2>Sign In</h2>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name = "username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name = "password" required>
+        </div>
+        <div>
+            <label for="userType">Sign in as:</label>
+            <select id="userType" name = "userType">
+                <option value="user" name = "user">User</option>
+                <option value="admin" name = "admin">Admin</option>
+            </select>
+        </div>
+        <button type="submit">Sign In</button>
+    </form>
+    <div style = "margin-top: 10px">
+        <form action = "signup.html">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
